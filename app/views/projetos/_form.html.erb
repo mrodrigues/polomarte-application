@@ -1,0 +1,15 @@
+<%= nested_form_for @projeto do |f| %>
+  <%= f.text_field :nome, placeholder: "Nome", class: 'text_field' %>
+
+  <div class="nested-form">
+    <h2>Tarefas</h2>
+    <%= f.fields_for :tarefas do |builder| %>
+      <%= render partial: 'tarefas_fields', locals: { f: builder } %>
+    <% end %>
+    <p><%= f.link_to_add "Adicionar tarefa", :tarefas, class: "btn" %></p>
+  </div>
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+              projetos_path, :class => 'btn' %>
+<% end %>

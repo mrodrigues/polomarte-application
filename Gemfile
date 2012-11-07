@@ -6,11 +6,17 @@ gem 'rails', '3.2.8'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+gem 'better_matchers'
+gem 'nested_form'
 
 group :development do
 	gem 'guard'
 	gem 'guard-rspec'
-	gem 'rb-inotify', :require => false
+  gem "guard-spork"
+  gem 'rb-fsevent', :require => false
+	gem 'rb-inotify'
+	gem 'libnotify'
+	gem 'spork', '~> 1.0rc'
 end
 
 # Gems used only for assets and not required
@@ -21,6 +27,8 @@ group :assets do
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', :platforms => :ruby
+	gem 'less-rails'
+	gem 'twitter-bootstrap-rails'
 
   gem 'uglifier', '>= 1.0.3'
 end
@@ -30,6 +38,7 @@ gem 'jquery-rails'
 group :test, :development do
   gem "rspec-rails", "~> 2.0"
   gem 'shoulda-matchers'
+	gem 'factory_girl_rails'
 end
 
 # To use ActiveModel has_secure_password
