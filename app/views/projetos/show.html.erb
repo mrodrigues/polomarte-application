@@ -4,7 +4,16 @@
 </div>
 
 <% @projeto.tarefas.each do |tarefa| %>
-  <p><%= tarefa.descricao %></p>
+  <%= form_for tarefa, remote: true, html: { class: "form-tarefa" } do |f| %>
+    <%= f.hidden_field :descricao %>
+    <label class="checkbox">
+      <%= f.check_box :concluida, class: "submit-checkbox" %>
+      <%= tarefa.descricao %>
+    </label>
+    <span class="concluida">(finalizada)</span>
+    <span class="error">Erro ao enviar dados</span>
+    <%= f.submit class: "hidden" %>
+  <% end %>
 <% end %>
 
 <div class="form-actions">

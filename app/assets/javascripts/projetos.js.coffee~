@@ -4,6 +4,7 @@
 
 jQuery ->
 
+	$(".form-tarefa input[type=submit]").hide()
 	setConcluidaMessage = (form)->
 		console.log(form)
 		form = $(form)

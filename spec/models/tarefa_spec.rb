@@ -5,6 +5,7 @@ require 'spec_helper'
 describe Tarefa do
   it { should have_attribute :descricao }
   it { should have_attribute :concluida }
+  it { should allow_mass_assignment_of :concluida }
 
   it { should belong_to :projeto }
 
