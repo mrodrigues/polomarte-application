@@ -125,12 +125,20 @@ pt-BR:
         one: ! 'Não foi possível gravar %{model}: 1 erro'
         other: ! 'Não foi possível gravar %{model}: %{count} erros.'
   helpers:
+    actions: "Comandos"
     select:
       prompt: Por favor selecione
     submit:
       create: Criar %{model}
       submit: Salvar %{model}
       update: Atualizar %{model}
+    links:
+      cancel: "Cancelar"
+      new: "Novo"
+      edit: "Editar"
+      destroy: "Apagar"
+      back: "Voltar"
+      confirm: "Tem certeza que deseja realizar essa operação?"
   number:
     currency:
       format:

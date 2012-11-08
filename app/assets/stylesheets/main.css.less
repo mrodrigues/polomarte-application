@@ -1,5 +1,10 @@
 @import 'twitter/bootstrap/bootstrap';
 
+body {
+	background-color: #333;
+	padding-top: 2em;
+}
+
 div.nested-form {
 	.border-radius(5px);
 	border: 2px solid #DDD;
@@ -9,8 +14,51 @@ div.nested-form {
 
 .remove_nested_fields {
 	padding-left: 0.5em;
+	color: #999;
 	&:hover {
 		text-decoration: none;
 		font-weight: bolder;
+		color: red;
 	}
+}
+
+.table-actions {
+	width: 7em;
+}
+
+.checkbox {
+	cursor: pointer;
+}
+
+.row-fluid {
+	padding: 2em;
+	background-color: #FFF;
+	.border-radius(5px);
+}
+
+@media (min-width : 980px) {
+	.row-fluid {
+		width: 80%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+@media (max-width : 980px) {
+	.container-fluid {
+		padding: 0;
+	}
+
+	body {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+.field_with_errors {
+	display: inline-block;
+	input {
+		border-color: red;
+		box-shadow: 0 0 5px red;
+	}	
 }

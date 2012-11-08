@@ -19,7 +19,7 @@ class ProjetosController < ApplicationController
       flash[:notice] = "Projeto salvo com sucesso!"
       redirect_to @projeto
     else
-      flash[:error] = @projeto.errors
+      flash.now[:error] = setup_error_messages @projeto.errors
       render action: :new
     end
   end
@@ -35,7 +35,7 @@ class ProjetosController < ApplicationController
       flash[:notice] = "Projeto atualizado com sucesso"
       redirect_to @projeto
     else
-      flash[:error] = @projeto.errors
+      flash.now[:error] = setup_error_messages @projeto.errors
       render action: :edit
     end
   end
