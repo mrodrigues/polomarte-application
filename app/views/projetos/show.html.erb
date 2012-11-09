@@ -9,16 +9,16 @@
     <label class="checkbox">
       <%= f.check_box :concluida, class: "submit-checkbox" %>
       <%= tarefa.descricao %>
+      <span class="concluida">(finalizada)</span>
+      <span class="error">Erro ao enviar dados</span>
     </label>
-    <span class="concluida">(finalizada)</span>
-    <span class="error">Erro ao enviar dados</span>
     <%= f.submit class: "hidden" %>
   <% end %>
 <% end %>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
-              projetos_path, :class => 'btn'  %>
+              root_path, :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_projeto_path(@projeto), :class => 'btn' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

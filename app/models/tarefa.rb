@@ -4,4 +4,8 @@ class Tarefa < ActiveRecord::Base
   attr_accessible :descricao, :concluida
 
   validates :descricao, presence: true
+
+  after_save do
+    projeto.save
+  end
 end

@@ -2,11 +2,18 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
+<ul class="nav nav-pills">
+  <%= status_nav_item(false) do %>
+    <%= link_to "Em andamento", projetos_path(concluido: false) %>
+  <% end %>
+  <%= status_nav_item(true) do %>
+    <%= link_to "Concluídos", projetos_path(concluido: true) %>
+  <% end %>
+</ul>
 <table class="table table-striped" data-provides="rowlink">
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:nome) %></th>
-      <th>Status</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -14,7 +21,6 @@
     <% @projetos.each do |projeto| %>
       <tr>
         <td><%= link_to(projeto) do projeto.nome end %></td>
-        <td><%= projeto.concluido? ? "Concluído" : "Em andamento" %></td>
         <td class="nolink table-actions">
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_projeto_path(projeto), :class => 'btn btn-mini' %>

@@ -7,10 +7,12 @@ class Projeto < ActiveRecord::Base
 
   accepts_nested_attributes_for :tarefas, allow_destroy: true
 
-  def concluido?
-    result = true
-    tarefas.each { |tarefa| result &&= tarefa.concluida }
+  def check_concluido
+    self.concluido = true
+    tarefas.each { |tarefa| self.concluido &&= tarefa.concluida }
+  end
 
-    result
+  before_save do
+    check_concluido
   end
 end

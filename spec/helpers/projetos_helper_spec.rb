@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 require 'spec_helper'
 
 # Specs in this file have access to a helper object that includes
@@ -11,5 +13,22 @@ require 'spec_helper'
 #   end
 # end
 describe ProjetosHelper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "status_nav_item" do
+    it "exibe um item de navegação inativo" do
+      item = helper.status_nav_item(true) {}
+      item.should == "<li></li>"
+    end
+
+    it "exibe um item de navegação ativo quando está na página de projetos concluídos" do
+      params[:concluido] = "true"
+      item = helper.status_nav_item(true) {}
+      item.should == '<li class="active"></li>'
+    end
+
+    it "exibe um item de navegação ativo quando está na página de projetos em andamento" do
+      params[:concluido] = "false"
+      item = helper.status_nav_item(false) {}
+      item.should == '<li class="active"></li>'
+    end
+  end
 end

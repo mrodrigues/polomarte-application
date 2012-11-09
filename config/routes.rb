@@ -1,4 +1,5 @@
 PolomarteApplication::Application.routes.draw do
+  root to: "projetos#index", concluido: "false"
   resources :projetos
   resources :tarefas, only: :update
   # The priority is based upon order of creation:
